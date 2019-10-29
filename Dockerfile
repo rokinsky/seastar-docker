@@ -10,7 +10,7 @@ RUN ./install-dependencies.sh && \
 
 WORKDIR /seastar
 
-RUN git clone https://github.com/psarna/seastar/tree/zpp_fs . && \
+RUN git clone -b zpp_fs --single-branch https://github.com/rokinsky/seastar . && \
  ./configure.py --mode=release --prefix=/usr/local && \
  ninja -j1 -C build/release install
 
