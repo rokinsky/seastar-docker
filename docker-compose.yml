@@ -1,0 +1,21 @@
+version: '2.0'
+
+services:
+  seastar-server:
+    image: seastar-dev:latest
+    build:
+      context: .
+    security_opt: # options needed for gdb debugging
+      - seccomp:unconfined
+      - apparmor:unconfined
+    container_name: scylla
+    ports:
+      - "7776:22"
+      - "7777:7777"
+    mem_limit: 300m
+    mem_reservation: 100m
+        #    volumes:
+        #      - /mnt/scylla:/mnt/scylla
+    privileged: true
+    devices:
+      - "/dev/ttys000:/dev/usb"
