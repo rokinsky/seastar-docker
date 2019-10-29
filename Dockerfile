@@ -10,9 +10,9 @@ RUN ./install-dependencies.sh && \
 
 WORKDIR /seastar
 
-RUN git clone https://github.com/scylladb/seastar . && \
+RUN git clone https://github.com/psarna/seastar/tree/zpp_fs . && \
  ./configure.py --mode=release --prefix=/usr/local && \
- ninja -j1 -C build/release install && rm -rf *
+ ninja -j1 -C build/release install
 
 RUN mkdir /var/run/sshd && /usr/bin/ssh-keygen -A && \
  echo 'root:root' | chpasswd && \
