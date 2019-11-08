@@ -1,0 +1,22 @@
+# Это файл конфигурации пользователя Git.
+[user]
+	name = rokinsky
+	email = ankezy@gmail.com
+# Пожалуйста, адаптируйте и раскомментируйте следующие строки:
+#	user = rokinsky
+#	email = ankezy@gmail.com
+[core]
+	autocrlf = input
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[diff]
+	renames = copies
+	orderFile = .gitorderfile
+[sendemail]
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpencryption = tls
+	smtpuser = ankezy@gmail.com

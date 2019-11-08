@@ -6,7 +6,8 @@ COPY install-dependencies.sh .
 
 RUN ./install-dependencies.sh && \
  dnf install -y git clang rsync vim \
- strace valgrind gdb gdb-gdbserver openssh-server
+ strace valgrind gdb gdb-gdbserver \
+ git-email openssh-server
 
 WORKDIR /seastar
 
