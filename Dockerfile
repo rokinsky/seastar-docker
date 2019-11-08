@@ -1,4 +1,4 @@
-FROM fedora:30
+FROM fedora:31
 MAINTAINER Aleksander Sorokin <ankezy@gmail.com>
 
 # https://github.com/scylladb/seastar/
@@ -11,8 +11,8 @@ RUN ./install-dependencies.sh && \
 WORKDIR /seastar
 
 RUN git clone -b zpp_fs --single-branch https://github.com/rokinsky/seastar . && \
- ./configure.py --mode=release --prefix=/usr/local && \
- ninja -j1 -C build/release install
+ ./configure.py --mode=dev --prefix=/usr/local && \
+ ninja -j1 -C build/dev install
 
 RUN mkdir /var/run/sshd && /usr/bin/ssh-keygen -A && \
  echo 'root:root' | chpasswd && \

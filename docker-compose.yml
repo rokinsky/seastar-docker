@@ -17,5 +17,5 @@ services:
         #    volumes:
         #      - /mnt/scylla:/mnt/scylla
     privileged: true
-    devices:
-      - "/dev/ttys000:/dev/usb"
+    #    devices:
+    #  - "/dev/ttys000:/dev/usb"
