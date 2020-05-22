@@ -11,7 +11,7 @@ RUN ./install-dependencies.sh && \
 
 WORKDIR /seastar
 
-RUN git clone -b zpp_fs --single-branch https://github.com/rokinsky/seastar . && \
+RUN git clone -b zpp_fs --single-branch https://github.com/psarna/seastar . && \
  ./configure.py --mode=dev --prefix=/usr/local && \
  ninja -j1 -C build/dev install
 
@@ -29,5 +29,10 @@ EXPOSE 22 7777
 RUN groupadd -r scylla && \
  useradd -ms /bin/bash -r -g scylla scylla && \
  echo 'scylla:dev' | chpasswd
+
+COPY .gitconfig .vimrc /home/scylla/
+COPY .vim /home/scylla/.vim/
+
+RUN chown -R scylla:scylla /seastar /usr/local/lib64 /usr/local/bin /usr/local/include
 
 CMD ["/usr/sbin/sshd", "-D"]

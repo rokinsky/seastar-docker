@@ -46,6 +46,7 @@ redhat_packages=(
     yaml-cpp-devel
     c-ares-devel
     stow
+    diffutils
     "${transitive[@]}"
 )
 
@@ -59,6 +60,7 @@ fedora_packages=(
     libubsan
     libasan
     libatomic
+    valgrind-devel
 )
 
 if [ "$ID" = "fedora" ]; then
